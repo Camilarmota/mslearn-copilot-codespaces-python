@@ -35,3 +35,15 @@ def generate(body: Body):
     """
     string = base64.b64encode(os.urandom(64))[:body.length].decode('utf-8')
     return {'token': string}
+
+
+@app.get('/submit')
+def submit():
+    html_path = join(static_path, "submit.html")
+    return FileResponse(html_path)
+
+
+@app.get('/form')
+def form():
+    html_path = join(static_path, "form.html")
+    return FileResponse(html_path)
